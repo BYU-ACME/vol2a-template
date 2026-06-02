@@ -13,7 +13,8 @@ from collections import defaultdict
 class Edge:
     """An edge object, which wraps the node and weight attributes into one
     object, allowing for insertion/deletion from a set using just
-    the node attribute
+    the node attribute. Used in a Graph's adjacency dictionary, where each
+    node in the graph maps to a list of Edges originating from that node.
 
     Attributes:
         node (str): the value for the node the edge is pointing to
@@ -47,7 +48,8 @@ class Graph:
     the corresponding node's neighbors.
 
     Attributes:
-        d (dict): the adjacency dictionary of the graph.
+        d (dict): the adjacency dictionary of the graph, mapping nodes to all
+            their corresponding Edge objects.
         directed (bool): true if the graph is a directed graph.
     """
     def __init__(self, adjacency={}, directed=False):
@@ -66,7 +68,7 @@ class Graph:
         present.
 
         Parameters:
-            n: the label for the new node.
+            n (str): the label for the new node.
         """
         if n not in self.adjacency_d:
             self.adjacency_d[n] = set()
@@ -77,9 +79,9 @@ class Graph:
         Also add u and v to the graph if they are not already present.
 
         Parameters:
-            u: a node label.
-            v: a node label.
-            weight: the edge's weight
+            u (str): a node label.
+            v (str): a node label.
+            weight (int): the edge's weight
         """
         # Add nodes (if they aren't already in the graph).
         self.add_node(u)
@@ -101,7 +103,7 @@ class Graph:
         """Remove n from the graph, including all edges adjacent to it.
 
         Parameters:
-            n: the label for the node to remove.
+            n (str): the label for the node to remove.
 
         Raises:
             KeyError: if n is not in the graph.
@@ -117,8 +119,8 @@ class Graph:
         """Remove the edge between nodes u and v.
 
         Parameters:
-            u: a node label.
-            v: a node label.
+            u (str): a node label.
+            v (str): a node label.
 
         Raises:
             KeyError: if u or v are not in the graph, or if there is no
@@ -137,8 +139,8 @@ class Graph:
         including endpoints.
 
         Parameters:
-            source: the node to start the search at.
-            target: the node to search for.
+            source (str): the node label to start the search at.
+            target (str): the node label to search for.
 
         Returns:
             An int denoting the sum of weights along the shortest path

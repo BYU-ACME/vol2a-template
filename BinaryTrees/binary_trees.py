@@ -123,7 +123,7 @@ class BST:
 
     # Problem 3
     def insert(self, data):
-        """Insert a new node containing the specified data.
+        r"""Insert a new node containing the specified data.
 
         Raises:
             ValueError: if the data is already in the tree.
@@ -175,7 +175,7 @@ class BST:
         raise NotImplementedError("Problem 4 Incomplete")
 
     def __str__(self):
-        """String representation: a hierarchical view of the BST.
+        r"""String representation: a hierarchical view of the BST.
 
         Example:  (3)
                   / \     '[3]          The nodes of the BST are printed
@@ -251,7 +251,7 @@ class AVL(BST):
 
     @staticmethod
     def _height(current):
-        """Calculate the height of a given node by descending recursively until
+        r"""Calculate the height of a given node by descending recursively until
         there are no further child nodes. Return the number of children in the
         longest chain down.
                                     node | height

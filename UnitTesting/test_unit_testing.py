@@ -15,8 +15,8 @@ def test_add():
     assert unit_testing.add(-6, 14) == 8
 
 def test_divide():
-    assert unit_testing.divide(4,2) == 2, "integer division"
-    assert unit_testing.divide(5,4) == 1.25, "float division"
+    assert unit_testing.divide(4, 2) == 2, "integer division"
+    assert unit_testing.divide(5, 4) == 1.25, "float division"
     with pytest.raises(ZeroDivisionError) as excinfo:
         unit_testing.divide(4, 0)
     assert excinfo.value.args[0] == "second input cannot be zero"
@@ -47,24 +47,30 @@ def test_fraction_init(set_up_fractions):
     frac = unit_testing.Fraction(30, 42)
     assert frac.numer == 5
     assert frac.denom == 7
+    # Add unit tests here for __init__() to get full coverage
 
 def test_fraction_str(set_up_fractions):
     frac_1_3, frac_1_2, frac_n2_3 = set_up_fractions
     assert str(frac_1_3) == "1/3"
     assert str(frac_1_2) == "1/2"
     assert str(frac_n2_3) == "-2/3"
+    # Add unit tests here for __str__() to get full coverage
 
 def test_fraction_float(set_up_fractions):
     frac_1_3, frac_1_2, frac_n2_3 = set_up_fractions
     assert float(frac_1_3) == 1 / 3.
     assert float(frac_1_2) == .5
     assert float(frac_n2_3) == -2 / 3.
+    # Add unit tests here for __float__() to get full coverage
 
 def test_fraction_eq(set_up_fractions):
     frac_1_3, frac_1_2, frac_n2_3 = set_up_fractions
     assert frac_1_2 == unit_testing.Fraction(1, 2)
     assert frac_1_3 == unit_testing.Fraction(2, 6)
     assert frac_n2_3 == unit_testing.Fraction(8, -12)
+    # Add unit tests here for __eq__() to get full coverage
+
+# Create additional unit tests here for __add__(), __sub__(), __mul__(), and __truediv__()
 
 
 # Problem 5: Write test cases for Set.
