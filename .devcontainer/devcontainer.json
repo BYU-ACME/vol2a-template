@@ -1,7 +1,7 @@
 {
   // Name and pull image
   "name": "Vol 2 First Container",
-  "image": "ghcr.io/byu-acme/vol2-first-container:may2026",
+  "image": "ghcr.io/byu-acme/vol2-first-container:jun2026",
   "containerName": "vol2-first-container",
   "workspaceFolder": "/workspaces",
 
